@@ -37,11 +37,17 @@ public:
         if(head==NULL)t=true;
         return t;
     }
+    bool inTheEnd(){
+        bool t=false;
+        if(ptr->next==NULL)t=true;
+        return t;
+    }
     void Push(T _data){
         PNode p = new Node;
         bit.Clear(0);
         if(p==NULL)bit.Set(0);
         else{
+            p->data=_data;
             if(head==NULL){
                 p->next=head;
                 head=p;
@@ -55,21 +61,27 @@ public:
     }
     void pop(T &_data){
         bit.Clear(1);
+        bit.Clear(2);
         if(isEmpty())bit.Set(1);
         else{
-            PNode p;
-            if(ptr==NULL){
-                p=head;
-                head=p->next;
-            }
+            if(inTheEnd())bit.Set(2);
             else{
+                PNode p;
                 p=ptr->next;
                 ptr->next=p->next;
+                _data=p->data;
             }
-            _data=p->data;
         }
     }
-
+    void move_forward(){
+        bit.Clear(1);
+        bit.Clear(2);
+        if(isEmpty())bit.Set(1);
+        else{
+                if(ptr->next)ptr=ptr->next;
+                else bit.Set(2);
+            }
+        }
 };
 
 #endif // LIST1_H_INCLUDED
