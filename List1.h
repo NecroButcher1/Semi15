@@ -3,7 +3,7 @@
 #include <iostream>
 #include "BitContainer.h"
 using namespace std;
-enum err{ERR_MEM=1,EMPTY_OBJ=2};
+enum err{ERR_MEM=1,EMPTY_OBJ=2,END=3};
 template<typename T>
 class List1{
 private:
@@ -14,7 +14,7 @@ private:
     typedef Node *PNode;
     PNode ptr,head;
     int errcode;
-    BitContainer<2> bit;
+    BitContainer<3> bit;
 public:
     List1(){
         bit.Set(1);
@@ -29,7 +29,13 @@ public:
     int get_err(){
         if(bit.test(0))errcode=ERR_MEM;
         if(bit.test(1))errcode=EMPTY_OBJ;
+        if(bit.test(2))errcode=END;
         return errcode;
+    }
+    bool isEmpty(){
+        bool t=false;
+        if(head==NULL)t=true;
+        return t;
     }
     void Push(T _data){
         PNode p = new Node;
@@ -47,8 +53,21 @@ public:
             }
         }
     }
-    void pop(T &data){
-
+    void pop(T &_data){
+        bit.Clear(1);
+        if(isEmpty())bit.Set(1);
+        else{
+            PNode p;
+            if(ptr==NULL){
+                p=head;
+                head=p->next;
+            }
+            else{
+                p=ptr->next;
+                ptr->next=p->next;
+            }
+            _data=p->data;
+        }
     }
 
 };
