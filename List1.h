@@ -41,8 +41,6 @@ public:
     }
     bool inTheEnd(){
         bool t=false;
-       // if(ptr==NULL)t=true;
-        if(head==NULL)t=true;
         if(ptr->next==NULL)t=true;
         return t;
     }
@@ -65,15 +63,16 @@ public:
         }
     }
     void Extract(T &_data){
-        bit.Clear(1);
         bit.Clear(2);
+        bit.Clear(1);
         PNode p;
-        if(isEmpty())bit.Set(2);
+        if(isEmpty())bit.Set(1);
         else{
             if(inTheEnd()){
                 bit.Set(2);
                 p=head;
-                head=p->next;
+                head=NULL;
+                ptr=NULL;
             }
             else{
                 p=ptr->next;
@@ -128,14 +127,10 @@ public:
         }
     }
     void make_empty(){
-        bit.Clear(1);
-        if(isEmpty())bit.Set(1);
-        else{
-            ptr=head;
-            while(ptr->next)ptr=ptr->next;
-
-        }
-
+        while(head!=NULL)head=head->next;
+        ptr=NULL;
+        head=NULL;
+        bit.Set(1);
     }
 };
 

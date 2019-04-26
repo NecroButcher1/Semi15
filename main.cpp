@@ -50,10 +50,29 @@ int main()
             system("cls");
             k.err_clear();
             k.move_beg();
-            while(k.get_err()!=END){
-                k.Extract(elem);
-                cout<<elem<<endl;
+            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY"<<endl;
+            else{
+                while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
+                    k.Extract(elem);
+                    cout<<elem<<endl;
+                }
             }
+            chm=0;
+            k.make_empty();
+        }
+        if(chm==4){
+            system("cls");
+            k.err_clear();
+            k.move_beg();
+            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY"<<endl;
+            else{
+                 while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
+                    k.get(elem);
+                    cout<<elem<<endl;
+                    k.move_forward();
+                }
+            }
+            k.err_clear();
             chm=0;
         }
     }
