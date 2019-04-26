@@ -1,6 +1,8 @@
 #ifndef LIST1_H_INCLUDED
 #define LIST1_H_INCLUDED
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include "BitContainer.h"
 using namespace std;
 enum err{ERR_MEM=1,EMPTY_OBJ=2,END=3};
@@ -124,6 +126,16 @@ public:
         else{
             ptr=head;
         }
+    }
+    void make_empty(){
+        bit.Clear(1);
+        if(isEmpty())bit.Set(1);
+        else{
+            ptr=head;
+            while(ptr->next)ptr=ptr->next;
+
+        }
+
     }
 };
 
