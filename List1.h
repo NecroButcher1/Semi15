@@ -96,6 +96,20 @@ public:
             _data=p->data;
         }
     }
+    void put(T _data){
+        bit.Clear(1);
+        if(isEmpty())bit.Set(1);
+        else{
+            PNode p;
+            if(inTheEnd()){
+                p=head;
+            }
+            else{
+                p=ptr->next;
+            }
+            p->data=_data;
+        }
+    }
     void move_forward(){
         bit.Clear(1);
         bit.Clear(2);
