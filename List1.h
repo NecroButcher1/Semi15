@@ -39,6 +39,8 @@ public:
     }
     bool inTheEnd(){
         bool t=false;
+       // if(ptr==NULL)t=true;
+        if(head==NULL)t=true;
         if(ptr->next==NULL)t=true;
         return t;
     }
@@ -48,10 +50,11 @@ public:
         if(p==NULL)bit.Set(0);
         else{
             p->data=_data;
+            p->next=NULL;
             if(head==NULL){
                 p->next=head;
                 head=p;
-                ptr=head;
+                ptr=p;
             }
             else{
                 p->next=ptr->next;
@@ -62,15 +65,19 @@ public:
     void pop(T &_data){
         bit.Clear(1);
         bit.Clear(2);
-        if(isEmpty())bit.Set(1);
+        PNode p;
+        if(isEmpty())bit.Set(2);
         else{
-            if(inTheEnd())bit.Set(2);
+            if(inTheEnd()){
+                bit.Set(2);
+                p=head;
+                head=p->next;
+            }
             else{
-                PNode p;
                 p=ptr->next;
                 ptr->next=p->next;
-                _data=p->data;
             }
+            _data=p->data;
         }
     }
     void move_forward(){
@@ -78,8 +85,8 @@ public:
         bit.Clear(2);
         if(isEmpty())bit.Set(1);
         else{
-                if(ptr->next)ptr=ptr->next;
-                else bit.Set(2);
+            if(ptr->next)ptr=ptr->next;
+            else bit.Set(2);
             }
         }
 };
