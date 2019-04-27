@@ -1,6 +1,5 @@
 #ifndef BITCONTAINER_H_INCLUDED
 #define BITCONTAINER_H_INCLUDED
-#include <iostream>
 template <unsigned N>
 class BitContainer{
 private:

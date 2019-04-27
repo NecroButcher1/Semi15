@@ -10,8 +10,8 @@ int main()
         cin>>chm;
         while((chm<1)||(chm>6)||(!cin)){
             system("cls");
-            cin.ignore(32767,'\n');
             cin.clear();
+            cin.ignore(32767,'\n');
             menu();
             cin>>chm;
         }
