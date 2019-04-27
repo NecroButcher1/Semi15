@@ -1,11 +1,6 @@
 #ifndef LIST1_H_INCLUDED
 #define LIST1_H_INCLUDED
-#include <iostream>
-#include <stdlib.h>
-#include <time.h>
 #include "BitContainer.h"
-using namespace std;
-enum err{ERR_MEM=1,EMPTY_OBJ=2,END=3};
 template<typename T>
 class List1{
 private:
@@ -121,6 +116,7 @@ public:
         }
     }
     void move_beg(){
+        bit.Clear(1);
         if(isEmpty())bit.Set(1);
         else{
             ptr=head;
@@ -131,6 +127,23 @@ public:
         ptr=NULL;
         head=NULL;
         bit.Set(1);
+    }
+    void delete_after(){
+        bit.Clear(1);
+        PNode p;
+        if(isEmpty())bit.Set(1);
+        else{
+            if(inTheEnd()){
+                bit.Set(2);
+                p=head;
+                head=NULL;
+                ptr=NULL;
+            }
+            else{
+                p=ptr->next;
+                ptr->next=p->next;
+            }
+        }
     }
 };
 
