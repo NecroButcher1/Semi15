@@ -48,12 +48,19 @@ int main()
         }
         if(chm==3){
             system("cls");
+            unsigned i=0;
             k.err_clear();
             k.move_beg();
             cout<<"[";
             if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY";
             else{
                 while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
+                    i++;
+                    if(i==14){
+                        cout.width(4);
+                        cout<<endl;
+                        i=0;
+                    }
                     k.Extract(elem);
                     cout<<elem<<" ";
                 }
@@ -63,6 +70,7 @@ int main()
             k.make_empty();
         }
         if(chm==4){
+            unsigned i=0;
             system("cls");
             k.err_clear();
             k.move_beg();
@@ -70,6 +78,12 @@ int main()
             if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY";
             else{
                  while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
+                    i++;
+                    if(i==14){
+                        cout.width(4);
+                        cout<<endl;
+                        i=1;
+                    }
                     k.get(elem);
                     cout<<elem<<" ";
                     k.move_forward();
