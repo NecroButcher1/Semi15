@@ -58,8 +58,7 @@ int main()
                     cout<<elem<<" ";
                 }
             }
-            cout<<"]";
-            cout<<endl;
+            cout<<"]"<<endl;
             chm=0;
             k.make_empty();
         }
@@ -76,8 +75,7 @@ int main()
                     k.move_forward();
                 }
             }
-            cout<<"]";
-            cout<<endl;
+            cout<<"]"<<endl;
             k.err_clear();
             chm=0;
         }
