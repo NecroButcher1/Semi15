@@ -50,13 +50,16 @@ int main()
             system("cls");
             k.err_clear();
             k.move_beg();
-            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY"<<endl;
+            cout<<"[";
+            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY";
             else{
                 while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
                     k.Extract(elem);
-                    cout<<elem<<endl;
+                    cout<<elem<<" ";
                 }
             }
+            cout<<"]";
+            cout<<endl;
             chm=0;
             k.make_empty();
         }
@@ -64,14 +67,17 @@ int main()
             system("cls");
             k.err_clear();
             k.move_beg();
-            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY"<<endl;
+            cout<<"[";
+            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY";
             else{
                  while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
                     k.get(elem);
-                    cout<<elem<<endl;
+                    cout<<elem<<" ";
                     k.move_forward();
                 }
             }
+            cout<<"]";
+            cout<<endl;
             k.err_clear();
             chm=0;
         }
@@ -79,10 +85,10 @@ int main()
     return 0;
 }
 void menu(){
-    cout<<"==============================================="<<endl;
-    cout<<"1.Fill List                2.Fill random number"<<endl;
-    cout<<"3.See and delete           4.See"<<endl;
-    cout<<"5.Sort                     6.Exit"<<endl;
-    cout<<"==============================================="<<endl;
+    cout<<"+======================+============================+"<<endl;
+    cout<<"|[1] Fill List         |     [2] Fill random number |"<<endl;
+    cout<<"|[3] See and delete    |     [4] See                |"<<endl;
+    cout<<"|[5] Sort              |     [6] Exit               |"<<endl;
+    cout<<"+======================+============================+"<<endl;
     cout<<">>";
 }
