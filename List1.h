@@ -1,6 +1,8 @@
 #ifndef LIST1_H_INCLUDED
 #define LIST1_H_INCLUDED
 #include "BitContainer.h"
+#include <iostream>
+enum err{ERR_MEM=1,EMPTY_OBJ=2,END=3};
 template<typename T>
 class List1{
 private:
@@ -11,6 +13,7 @@ private:
     typedef Node *PNode;
     PNode ptr,head;
     int errcode;
+    unsigned lenght;
     BitContainer<3> bit;
 public:
     List1(){
@@ -18,6 +21,7 @@ public:
         errcode = 0;
         ptr=NULL;
         head=NULL;
+        lenght=0;
     }
     void err_clear(){
         errcode=0;
@@ -39,6 +43,9 @@ public:
         if(ptr->next==NULL)t=true;
         return t;
     }
+    unsigned get_size(){
+        return lenght;
+    }
     void Insert(T _data){
         PNode p = new Node;
         bit.Clear(0);
@@ -46,6 +53,7 @@ public:
         else{
             p->data=_data;
             p->next=NULL;
+            lenght++;
             if(head==NULL){
                 p->next=head;
                 head=p;
@@ -66,15 +74,16 @@ public:
             if(inTheEnd()){
                 bit.Set(2);
                 p=head;
-                head=NULL;
-                ptr=NULL;
+                lenght=0;
             }
             else{
                 p=ptr->next;
                 ptr->next=p->next;
+                lenght--;
             }
             _data=p->data;
         }
+        delete p;
     }
     void get(T &_data){
         bit.Clear(1);
@@ -127,12 +136,14 @@ public:
         ptr=NULL;
         head=NULL;
         bit.Set(1);
+        lenght=0;
     }
     void delete_after(){
         bit.Clear(1);
         PNode p;
         if(isEmpty())bit.Set(1);
         else{
+            lenght--;
             if(inTheEnd()){
                 bit.Set(2);
                 p=head;
@@ -144,6 +155,16 @@ public:
                 ptr->next=p->next;
             }
         }
+    }
+    void move_end(){
+        bit.Clear(1);
+        if(isEmpty())bit.Set(1);
+        else{
+            while(ptr->next->next)ptr=ptr->next;
+        }
+    }
+    ~List1(){
+        make_empty();
     }
 };
 

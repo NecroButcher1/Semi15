@@ -1,11 +1,6 @@
 #pragma once
 #ifndef BITCONTAINER_H_INCLUDED
 #define BITCONTAINER_H_INCLUDED
-#include <iostream>
-#include <stdlib.h>
-#include <time.h>
-using namespace std;
-enum err{ERR_MEM=1,EMPTY_OBJ=2,END=3};
 template <unsigned N>
 class BitContainer{
 private:

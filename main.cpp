@@ -1,4 +1,9 @@
 #include "List1.h"
+#include "Sort1.h"
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
 void menu();
 int main()
 {
@@ -91,6 +96,11 @@ int main()
             }
             cout<<"]"<<endl;
             k.err_clear();
+            chm=0;
+        }
+        if(chm==5){
+            system("cls");
+            Sort(k);
             chm=0;
         }
     }
