@@ -1,13 +1,13 @@
 #pragma once
 #ifndef BITCONTAINER_H_INCLUDED
 #define BITCONTAINER_H_INCLUDED
-template <unsigned N>
+template<unsigned N>
 class BitContainer{
 private:
-    bool bits[N] ;
+    bool bits[N];
 
 public:
-    bit(){
+    BitContainer(){
         Clear();
     }
     void Clear(){

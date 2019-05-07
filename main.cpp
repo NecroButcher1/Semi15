@@ -57,9 +57,9 @@ int main()
             k.err_clear();
             k.move_beg();
             cout<<"[";
-            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY";
+            if(k.err_get()==EMPTY_OBJ)cout<<"EMPTY";
             else{
-                while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
+                while((k.err_get()!=END)&&(k.err_get()!=EMPTY_OBJ)){
                     i++;
                     if(i==14){
                         cout.width(4);
@@ -80,9 +80,9 @@ int main()
             k.err_clear();
             k.move_beg();
             cout<<"[";
-            if(k.get_err()==EMPTY_OBJ)cout<<"EMPTY";
+            if(k.err_get()==EMPTY_OBJ)cout<<"EMPTY";
             else{
-                 while((k.get_err()!=END)&&(k.get_err()!=EMPTY_OBJ)){
+                 while((k.err_get()!=END)&&(k.err_get()!=EMPTY_OBJ)){
                     i++;
                     if(i==14){
                         cout.width(4);
