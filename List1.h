@@ -2,7 +2,7 @@
 #define LIST1_H_INCLUDED
 #include "BitContainer.h"
 #include <iostream>
-enum{ERR_MEM=1,EMPTY_OBJ=2,END=3};
+enum err{ERR_MEM=1,EMPTY_OBJ=2,END=3};
 template<typename T>
 class List1{
 private:
@@ -44,6 +44,8 @@ public:
              Head=p->next;
         }
         Ptr=NULL;
+        Head=NULL;
+        bit.Set(1);
     }
     bool isEnd(){
         bool e=false;
@@ -66,7 +68,7 @@ public:
         if(isEmpty())bit.Set(1);
         else{
             if(isEnd()){
-                bit.Set(2);
+                bit.Set(1);
                 p=Head;
             }
             else{
@@ -81,6 +83,7 @@ public:
     void Insert(T _Data){
         PNode p = new Node;
         bit.Clear(0);
+        bit.Clear(1);
         if(p==NULL)bit.Set(0);
         else{
             p->Data=_Data;
@@ -132,6 +135,22 @@ public:
                 p=Ptr->next;
             }
             _Data=p->Data;
+        }
+    }
+    void put(T _Data){
+        bit.Clear(1);
+        bit.Clear(2);
+        if(isEmpty())bit.Set(1);
+        else{
+            PNode p;
+            if(isEnd()){
+                bit.Set(2);
+                p=Head;
+            }
+            else{
+                p=Ptr->next;
+            }
+            p->Data=_Data;
         }
     }
     void move_end(){
