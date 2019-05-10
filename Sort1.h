@@ -7,8 +7,8 @@ template<typename T>
 int Sort(List1<T> &t){
     int out=0;
     T elem;
-    List1<int> t2;
-    List1<int> t3;
+    List1<T> t2;
+    List1<T> t3;
     if(t.isEmpty())out=1;
     else{
         t.move_beg();
