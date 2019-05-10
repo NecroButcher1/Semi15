@@ -160,6 +160,9 @@ public:
             while(Ptr->next)Ptr=Ptr->next;
         }
     }
+    ~List1(){
+        make_empty();
+    }
 };
 
 #endif // LIST1_H_INCLUDED
