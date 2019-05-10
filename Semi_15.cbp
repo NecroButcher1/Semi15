@@ -35,6 +35,7 @@
 		<Unit filename="BitContainer.h" />
 		<Unit filename="List1.h" />
 		<Unit filename="List2.h" />
+		<Unit filename="Sort1.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

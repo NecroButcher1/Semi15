@@ -5,7 +5,6 @@ template<unsigned N>
 class BitContainer{
 private:
     bool bits[N];
-
 public:
     BitContainer(){
         Clear();

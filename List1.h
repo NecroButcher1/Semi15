@@ -10,7 +10,7 @@ private:
         T Data;
         Node* next;
     };
-    typedef Node *PNode;
+    typedef Node* PNode;
     BitContainer<3> bit;
     PNode Head,Ptr;
     unsigned errorcode;
@@ -63,7 +63,7 @@ public:
     }
     void Extract(T &_Data){
         bit.Clear(1);
-        bit.Clear(2);
+        //bit.Clear(2);
         PNode p;
         if(isEmpty())bit.Set(1);
         else{
@@ -128,7 +128,7 @@ public:
         else{
             PNode p;
             if(isEnd()){
-                bit.Set(2);
+                bit.Set(1); //2
                 p=Head;
             }
             else{
@@ -144,7 +144,7 @@ public:
         else{
             PNode p;
             if(isEnd()){
-                bit.Set(2);
+                bit.Set(1); //2
                 p=Head;
             }
             else{

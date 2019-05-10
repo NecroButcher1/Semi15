@@ -100,7 +100,9 @@ int main()
         }
         if(chm==5){
             system("cls");
-            Sort(k);
+            int o;
+            o=Sort(k);
+            if(o==1)cout<<"EMPTY LIST"<<endl;
             chm=0;
         }
     }
